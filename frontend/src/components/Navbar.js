@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -9,4 +9,4 @@ export const Navbar = () => {
     </header>
   )
 }
-export default Navbar
+export default Navbar;
