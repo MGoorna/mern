@@ -68,7 +68,7 @@ function mul(x){
 
 //add(2,3) add(2)(3)
 const add = (x,y) => {
-  if(y==undefined){
+  if(y===undefined){
     return function(y){
       return x+y
     }
@@ -78,9 +78,8 @@ const add = (x,y) => {
 
 // flattern([[1],[2,3],4])
 function flattern(array){
-  return arr.reduce((flat, toFlatten) => {
+  return array.reduce((flat, toFlatten) => {
     return flat.concat(Array.isArray(toFlatten) ? flattern(toFlatten) : toFlatten)
   })
 }
 
-//

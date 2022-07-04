@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 
 function WorkoutForm() {
   const [title, setTitle] = useState("");
@@ -6,6 +6,7 @@ function WorkoutForm() {
   const [reps, setReps] = useState("");
   const [error, setError] = useState(null);
   const [emptyField, setEmptyField] = useState([]);
+  const id = useId();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,26 +39,26 @@ function WorkoutForm() {
     <form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
 
-      <label htmlFor="title">Exersize Title</label>
+      <label htmlFor={`${id}-title`}>Exersize Title</label>
       <input
         type="text"
-        id="title"
+        id={`${id}-title`}
         onChange={(e) => setTitle(e.target.value)}
         value={title}
         className={emptyField.includes("title") ? "error" : ""}
       />
-      <label htmlFor="load">Load</label>
+      <label htmlFor={`${id}-load`}>Load</label>
       <input
         type="number"
-        id="load"
+        id={`${id}-load`}
         onChange={(e) => setLoad(e.target.value)}
         value={load}
         className={emptyField.includes("load") ? "error" : ""}
       />
-      <label htmlFor="reps">Reps</label>
+      <label htmlFor={`${id}-reps`}>Reps</label>
       <input
         type="number"
-        id="reps"
+        id={`${id}-reps`}
         onChange={(e) => setReps(e.target.value)}
         value={reps}
         className={emptyField.includes("reps") ? "error" : ""}
