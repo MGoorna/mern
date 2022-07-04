@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    //node: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -21,7 +21,10 @@ module.exports = {
   rules: {
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
-    
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-underscore-dangle": 'off',
+    "react/prop-types": "off",
+
     "linebreak-style": 0,
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
@@ -30,5 +33,9 @@ module.exports = {
         namedComponents: "function-declaration",
       },
     ],
+
+    "no-console": 0, 
+    "no-empty": 0,
+    "no-irregular-whitespace":0
   },
 };
