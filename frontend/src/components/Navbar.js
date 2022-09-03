@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Navbar() {
+const Navbar = () => {
   return (
     <header>
       <div className="container">

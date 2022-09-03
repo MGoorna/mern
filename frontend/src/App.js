@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from '../src/pages/Home'
-import Login from '../src/pages/Login'
-import Navbar from './components/Navbar';
-import Signup from '../src/pages/Signup'
- 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
+import Signup from "./pages/Signup";
+
 function App() {
   return (
     <div className="App">
@@ -12,16 +12,16 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-              path='/'
-              element={<Home/>}
+              path="/"
+              element={<Home />}
             />
             <Route
-              path='/login'
-              element={<Login/>}
+              path="/login"
+              element={<Login />}
             />
             <Route
-              path='/signup'
-              element={<Signup/>}
+              path="/signup"
+              element={<Signup />}
             />
           </Routes>
         </div>
