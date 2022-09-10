@@ -37,4 +37,15 @@ const signupUser = async (req, res) => {
   }
 }
 
+// logout a user
+const logout = async (req, res) => {
+  const {email, password} = req.body
+  try{
+    const token = createToken()
+    res.status(200).json()
+  } catch {
+    res.status(400).json({error: error.message})
+  }
+
+}
 module.exports = { signupUser, loginUser }
