@@ -1,16 +1,22 @@
 import { useState, useId } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function WorkoutForm() {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
   const [error, setError] = useState(null);
-  const [emptyField, setEmptyField] = useState([]);
+  const [emptyField, setEmptyField] = useState([]); 
   const id = useId();
+  const { user } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+console.log('user',user)
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
     const workout = { title, load, reps };
 
     const response = await fetch("/api/workouts", {
@@ -18,6 +24,7 @@ function WorkoutForm() {
       body: JSON.stringify(workout),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     });
     const json = await response.json();
@@ -63,7 +70,7 @@ function WorkoutForm() {
         value={reps}
         className={emptyField.includes("reps") ? "error" : ""}
       />
-      <button type="button">Add workout</button>
+      <button type="submit">Add workout</button>
       {error && <div className="error">{error}</div>}
     </form>
   );
