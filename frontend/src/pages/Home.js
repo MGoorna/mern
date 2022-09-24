@@ -21,10 +21,10 @@ function Home() {
         dispatch({ type: "SET_WORKOUTS", payload: data });
       }
     };
-    if(user){
+    if (user) {
       fetchWorkouts();
     }
-  }, [dispatch,  user]);
+  }, [dispatch, user]);
 
   return (
     <div className="home">
