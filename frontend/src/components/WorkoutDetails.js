@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { WorkoutContext } from "../context/WorkoutContext";
+import { useWorkoutContext } from '../hooks/useWorkoutContext'
 import { useAuthContext } from "../hooks/useAuthContext";
 
 function WorkoutDetails({ workout }) {
-  const { dispatch } = useContext(WorkoutContext);
+  const { dispatch } = useWorkoutContext()
   const { user } = useAuthContext();
 
   const handleCancel = async () => {
